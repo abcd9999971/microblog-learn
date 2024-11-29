@@ -6,16 +6,17 @@ from app import app
 @app.route('/index')
 def index():
     user = {'username':'higuchi'}
-    return render_template('index.html', title='Home', user=user)
-    '''
-<html>
-    <head>
-        <title>Home Page - Microblog</title>
-    </head>
-    <body>
-        <h1>Hello,'''+user['username'] + '''!</h1>
-    </body>
-</html>'''
+    posts = [
+        { 'author': {'username':'John'},
+        'body': 'Good morning from Kyoto!'},
+        { 'author': {'username':'Susan'},
+        'body': 'Cheese is the best!'},
+        { 'author': {'username':'Asakura'},
+        'body': 'Guu'}
+
+    ]
+    return render_template('index.html', title='Home', user=user,posts = posts)
+
 
 
 
